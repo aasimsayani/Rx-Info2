@@ -2,7 +2,6 @@
 
 <form method = "POST" action ='/drugs/drug-edit'>
 
-<% user_comments.forEach((drug) => { %>
   <input class = "input" type = "drugs" name = "drugs" placeholder = "Name of Drug Taken">
   <br/>
   <br/>
@@ -12,11 +11,7 @@
   <input class = "input" type = "alcconsent" name = "alcconsent" placeholder = "Consent for Alc Sustainability">
   <br/>
   <br/>
-
   <input class = "submit" type = "submit">
-
- <% }) %>
-
 </form>
 
 

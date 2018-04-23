@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 // //import User model functions, allowing us to crete User database and retrieve user from database
 const UserDb = require("../../models/User");
-const saltRounds = 10;
+// const saltRounds = 10;
 
 function login(req, res, next) {
     let user;

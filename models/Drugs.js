@@ -3,7 +3,7 @@ const db = require('../config/connection.js');
 
 function getAllDrugs () {
     return db.many(`
-    SELECT * FROM drugs
+    SELECT * FROM drugs_comments
     `);
 }
 
@@ -14,23 +14,37 @@ function getOneDrug(id) {
     `, id);
 }
 
-function getComment(id) {
+function insertDrugs(id) {
   return db.one(`
-    SELECT comments FROM users_drugs
+    INSERT INTO drugs_comments (name, comment, consent)
+    VALUES ($/name/, $/comment/, $/consent/)
     WHERE users_drugs.id = $1
     `, id);
 }
 
-function addComment(id) {
+function destroy(id) {
+  return db.none(`
+    DELETE FROM drugs_comments
+    WHERE drugs_comments.id = $1
+    RETURNING *
+    `, id);
+}
+
+function updateDrugs(id) {
   return db.one(`
-    INSERT INTO user_drugs (comments)
-    VALUES ($/comments/)
-    WHERE users_drugs.user_id = $1
+    UPDATE drugs_comments
+    SET name = $/name/,
+     comment = $/comment/,
+     consent = $/consent/
+    WHERE id = $/id/
     RETURNING *
     `, id);
 }
 
 module.exports = {
     getAllDrugs,
-    getoneDrug
+    getoneDrug,
+    insertDrugs,
+    destroy,
+    updateDrugs
 }

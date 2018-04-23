@@ -2,18 +2,29 @@
 
  <img src="http://res.cloudinary.com/dkcipiujg/image/upload/v1524444031/rxinfologo.png"  alt="rxinfo">
 
-<form method = "POST" action ='/users/profile'>
 
-  <input class = "input" type = "drugs" name = "drugs" placeholder = "Name of Drug Taken">
-  <br/>
-  <br/>
-  <input class = "input" type = "comment" name = "comments" placeholder = "Enter any comments around the medication (i.e. issues, concerns, reactions, etc)">
-  <br/>
-  <br/>
-  <input class = "input" type = "alcconsent" name = "alcconsent" placeholder = "Consent for Alc Sustainability">
-  <br/>
-  <br/>
-  <input class = "submit" type = "submit">
-</form>
+
+ <table style = "width:100%">
+
+  <tr>
+    <th>Drug Name</th>
+    <th>Comments</th>
+    <th>Consent</th>
+    <th>Edit</th>
+  </tr>
+
+<% user_comments.forEach((drug) => { %>
+    <th><%= drug.name %></th>
+    <th><%= drug.comment %></th>
+    <th><%= drug.consent %></th>
+    <th><a href = "users/edit/<% drug.id %>">Edit</a></th>
+
+
+  <% }) %>
+
+
+<button type = "button" class = "btn-success"><a href = 'users/drugs-edit'>Add</a></button>
+
+
 
 <% include ../partials/end %>
