@@ -1,11 +1,30 @@
-\c auth_test
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS drugs CASCADE;
+DROP TABLE IF EXISTS users_drugs CASCADE;
 
-DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    uname VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    password_digest VARCHAR(255)
+id SERIAL PRIMARY KEY NOT NULL,
+user_name VARCHAR(255) UNIQUE NOT NULL,
+pass_word TEXT NOT NULL,
+email VARCHAR(255) UNIQUE NOT NULL,
+firstname VARCHAR(255),
+lastname VARCHAR(255),
+drugs_taken VARCHAR(255)
 );
 
+CREATE TABLE drugs (
+id SERIAL PRIMARY KEY NOT NULL,
+fda_name TEXT NOT NULL,
+fda_alc INT NOT NULL,
+fda_dir TEXT NOT NULL
+);
+
+
+CREATE TABLE users_drugs (
+id SERIAL PRIMARY KEY NOT NULL,
+users_id  INT REFERENCES users(id),
+drugs_id  INT REFERENCES drugs(id),
+alc_meter INT,
+comments TEXT
+)
