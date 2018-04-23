@@ -3,19 +3,14 @@
 
 <p> Welcome to your profile <%= users.firstname %>,</p>
 
-<form method = "POST" action ='/users/profile'>
-
-  <input class = "input" type = "drugs" name = "drugs">
-  <input class = "input" type = "comment" name = "comments">
-  <input class = "input" type = "alcconsent" name = "alcconsent"
-
-</form>
 
 <p> The following is a display of the drugs and comments that are currently being used by the patient</p>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profileModal">
   Edit Profile
 </button>
+
+<button type= "button" class = "btn btn-success"><a href= "/drugs">Add a new drug to your profile</a></button>
 
 <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

@@ -1,0 +1,19 @@
+<% include ../partials/boilerplate %>
+
+ <img src="http://res.cloudinary.com/dkcipiujg/image/upload/v1524444031/rxinfologo.png"  alt="rxinfo">
+
+<form method = "POST" action ='/users/profile'>
+
+  <input class = "input" type = "drugs" name = "drugs" placeholder = "Name of Drug Taken">
+  <br/>
+  <br/>
+  <input class = "input" type = "comment" name = "comments" placeholder = "Enter any comments around the medication (i.e. issues, concerns, reactions, etc)">
+  <br/>
+  <br/>
+  <input class = "input" type = "alcconsent" name = "alcconsent" placeholder = "Consent for Alc Sustainability">
+  <br/>
+  <br/>
+  <input class = "submit" type = "submit">
+</form>
+
+<% include ../partials/end %>

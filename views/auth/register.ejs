@@ -2,14 +2,27 @@
 <% include ../partials/boilerplate %>
 
 <div class='movie-container'>
+<img src = "http://res.cloudinary.com/dkcipiujg/image/upload/v1524444031/rxinfologo.png"  alt="rxinfo">
+<h3> Welcome to Rx-Info! Please enter the following information to sign-up for our service </h3>
   <form method='POST' action='/auth/register'>
     <input name='user_name' type='text' placeholder='username' required />
+    <br/>
+    <br/>
     <input name='pass_word' type='password' placeholder='password' required />
+    <br/>
+    <br/>
     <input name='email' type='email' placeholder='email' required />
+    <br/>
+    <br/>
     <input name='firstname'type='text' placeholder='firstname' />
+    <br/>
+    <br/>
     <input name='lastname' type='text' placeholder='lastname'/>
+    <br/>
+    <br/>
     <input name='drugs_taken' type= 'text' placeholder='Enter all medications taken'/>
-
+    <br/>
+    <br/>
     <input type='submit' value='Register!' />
   </form>
 </div>

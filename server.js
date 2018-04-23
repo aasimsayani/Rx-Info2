@@ -12,6 +12,7 @@ const session = require('express-session')
 const authRouter = require('./services/auth/AuthRouter')
 
 const userRouter = require('./routes/user-router')
+const drugsRouter = require('./routes/drugs-router')
 
 
 const PORT = process.env.PORT || 3000;
@@ -47,6 +48,7 @@ app.use(methodOverride('_method'));
 
 app.use('/auth', authRouter);
 app.use('/users', userRouter);
+app.use('/drugs', drugsRouter);
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -70,7 +72,7 @@ app.use((err, req, res,next) => {
   })
 
 app.listen(PORT,()=> {
-  console.log(`  🚕   💨     🏃  🚧  ${PORT} 🚧 `);
+  console.log(` Up and Running on ${PORT}  `);
 })
 
 

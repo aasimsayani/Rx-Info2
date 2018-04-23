@@ -9,14 +9,20 @@ const saltRounds = 10;
 function login(req, res, next) {
     let user;
     const loginAttempt = {
-        user_name: req.body.user_name,
-        email: req.body.email,
-        pass_word: req.body.pass_word
-      }
+      user_name: req.body.uname,
+      email: req.body.email,
+      password: req.body.password
+    }
+
+         // res.locals.user_name= req.body.user_name,
+         // res.locals.email= req.body.email,
+         // res.locals.pass_word= req.body.pass_word
+
+      console.log('This is capturing the username', loginAttempt.user_name);
   UserDb.findUser(loginAttempt.user_name)
     .then(userInfo => {
       user = userInfo
-      return bcrypt.compare(loginAttempt.pass_word, hash)
+      return bcrypt.compareSync(loginAttempt.password, userInfo.pass_word)
       })
     .then(isValidPass => {
         if (!isValidPass) {
@@ -41,20 +47,21 @@ function logout(req, res, next) {
   req.session.destroy(err => next(err));
 }
 
-function register(req, res, next) {
-  const salt = bcrypt.genSaltSync(saltRounds);
-  const hash = bcrypt.hash(req.body.password, salt)
+async function register(req, res, next) {
+  // const salt = await bcrypt.genSaltSync(saltRounds);
+  // const hash =
   const user = {
     user_name: req.body.user_name,
-    pass_word: hash,
+    pass_word: await bcrypt.hash(req.body.pass_word, 5),
     email: req.body.email,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     drugs_taken: req.body.drugs_taken
 
   }
-
+console.log(user);
   UserDb.createUser(user)
+
     .then(user => {
       if (!user) {
         throw {

@@ -27,11 +27,20 @@ createUser = (user) => {
 
 
 
- findUser = (id) => {
-    return db.one(`
-    SELECT * FROM users
-    WHERE user_name = $1
-    `, id);
+//  findUser = (email) => {
+//     return db.one(`
+//     SELECT * FROM users
+//     WHERE users.email = $1
+//     `, email);
+// };
+
+function findUser (user_name) {
+  return db.one(`
+    SELECT *
+    FROM users
+    WHERE users.user_name = $1;`,
+    [user_name]
+  );
 };
 
 // createUser = (user) => {
