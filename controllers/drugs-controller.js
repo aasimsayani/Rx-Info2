@@ -25,7 +25,7 @@ function findDrugs(req, res, next) {
 
 function addDrugs (req, res, next) {
   console.log('Adding to the drugs_comments');
-  drugsDb.insertDrugs(req.body)
+  drugsDb.insertDrugs(req.params.id)
     .then(data => {
       res.locals.newDrug = data;
       next();

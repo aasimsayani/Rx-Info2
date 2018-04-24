@@ -3,15 +3,28 @@ const drugsViewController = require('../controllers/drugsView-controller')
 const drugsController = require('../controllers/drugs-controller.js')
 const drugsDb = require('../models/Drugs.js');
 
+// drugsRouter.route('/')
+//   .get(drugsController.index, drugsViewController.showDrugs)
+//   .post(drugsController.addDrugs, drugsViewController.showEditForm)
+
+// drugsRouter.route('/drugs-add')
+//   .get(drugsController.findDrugs, drugsViewController.handleCreate)
+
+// drugsRouter.route('/drugs-edit/:id')
+//   .get(drugsController.findDrugs, drugsViewController.showEditForm)
+//   .put(drugsController.updateDrug)
+//   .delete(drugsController.destroyDrug, drugsViewController.handleDelete)
+
+
 drugsRouter.route('/')
-.get( drugsController.index, drugsViewController.showDrugs)
+.get( drugsController.index, drugsViewController.showDrugs);
 
 
-drugsRouter.route('/drugs-add')
+drugsRouter.route('drugs/drugs-add')
 .get( drugsViewController.showForm)
 .post( drugsController.addDrugs, drugsViewController.handleCreate);
 
-drugsRouter.route('/drugs-edit/:id')
+drugsRouter.route('drugs/drugs-edit/:id')
 .get(drugsController.findDrugs, drugsViewController.showEditForm)
 .put(drugsController.updateDrug)
 .delete(drugsController.destroyDrug, drugsViewController.handleDelete);

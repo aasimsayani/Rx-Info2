@@ -1,6 +1,6 @@
 <% include ../partials/boilerplate %>
 
-<form method = "POST" action ='/users/drug-edit'>
+<form method = "POST" action ='/drugs/drug-add'>
 
   <input class = "input" type = "drugs" name = "drugs" placeholder = "Name of Drug Taken">
   <br/>
@@ -13,9 +13,6 @@
   <br/>
   <input class = "submit" type = "submit">
 </form>
-
-
-
 
 
 <% include ../partials/end %>

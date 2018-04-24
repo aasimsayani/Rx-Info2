@@ -18,7 +18,7 @@ function insertDrugs(id) {
   return db.one(`
     INSERT INTO drugs_comments (name, comment, consent)
     VALUES ($/name/, $/comment/, $/consent/)
-    WHERE users_drugs.id = $1
+    WHERE drugs_comments.id = $1
     `, id);
 }
 
