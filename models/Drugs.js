@@ -1,6 +1,9 @@
+// initially required bcrypt because I thought I would be able to connect UserAuth and drugs
 const bcrypt = require('bcrypt');
+// this const db is connecting the database to this query page
 const db = require('../config/connection.js');
 
+// these are all function being used to call SQL queries to search the database
 function getAllDrugs() {
     return db.any(`
     SELECT * FROM drugs_comments

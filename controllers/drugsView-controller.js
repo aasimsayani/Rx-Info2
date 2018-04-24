@@ -1,3 +1,9 @@
+// Page I struggled the most with mainly because it was 2am by the time I got here
+// these were just being challenging I got the ejs to start throwing errors and almost render
+// Unfortunately I made some sort of change and it messed it up
+// my routes are going to the right place but I am not getting anything
+// the path is correct as well not sure what the issue was here
+
 // function showDrugs(req, res) {
 //   console.log('I send successful responses');
 //   res.render('drugs/drugs', {
