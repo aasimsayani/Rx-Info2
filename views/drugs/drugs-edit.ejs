@@ -1,9 +1,9 @@
 <% include ../partials/boilerplate %>
 
-<form method = "POST" action ='/drugs/drug-edit'>
 
-<% information.forEach((drug) => { %>
-  <input class = "input" type = "drugs" name = "drugs" value = "<%= drug.name">
+<form method = "POST" action ='/drugs/drug-edit'>
+  <% info.forEach((drug) => { %>
+  <input class = "input" type = "drugs" name = "drugs" value = <%= drug.name %>
   <br/>
   <br/>
   <input class = "input" type = "comment" value = <%= drug.comment %> ">

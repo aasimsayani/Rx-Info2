@@ -1,8 +1,8 @@
 const bcrypt = require('bcrypt');
 const db = require('../config/connection.js');
 
-function getAllDrugs () {
-    return db.many(`
+function getAllDrugs() {
+    return db.any(`
     SELECT * FROM drugs_comments
     `);
 }
@@ -43,7 +43,7 @@ function updateDrugs(id) {
 
 module.exports = {
     getAllDrugs,
-    getoneDrug,
+    getOneDrug,
     insertDrugs,
     destroy,
     updateDrugs

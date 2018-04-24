@@ -17,7 +17,7 @@
     <td><%= drug.name %></td>
     <td><%= drug.comment %></td>
     <td><%= drug.consent %></td>
-    <td><a href = "/drugs-edit/<% drug.id %>">Edit</a></td>
+    <td><a href = "drugs/drugs-edit/<%= drug.id %>">Edit</a></td>
   </tr>
 
 <% }) %>
@@ -27,7 +27,7 @@
 
 <br/>
 
-<button type = "button" class = "btn-success"><a href ="/drugs-add">Add</a></button>
+<button type = "button" class = "btn-success"><a href ='drugs/drugs-add'>Add</a></button>
 
 
 

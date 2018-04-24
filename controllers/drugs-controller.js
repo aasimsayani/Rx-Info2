@@ -1,10 +1,33 @@
-const drugsDb = require("../../models/User");
+const drugsDb = require("../models/Drugs");
+
+function index(req, res, next) {
+  drugsDb.getAllDrugs()
+  .then(data => {
+    // console.log(data)
+    res.locals.drugs = data
+    next();
+  })
+  .catch(err => {
+    next(err);
+  })
+}
+
+function findDrugs(req, res, next) {
+  drugsDb.getOneDrug(req.params.id)
+  .then(data => {
+    res.locals.drugs = data
+    next();
+  })
+  .catch(err => {
+    next(err)
+  })
+}
 
 function addDrugs (req, res, next) {
   console.log('Adding to the drugs_comments');
-  drugsDB.insertDrugs(id)
+  drugsDb.insertDrugs(req.body)
     .then(data => {
-      res.locals.drugs = data;
+      res.locals.newDrug = data;
       next();
     })
     .catch(err => {
@@ -26,14 +49,15 @@ function updateDrug(req, res) {
   req.body.id = req.params.id;
   drugsDB.updateDrugs(req.body.id)
    .then(data => {
-    res.redirect(`/drugs/${req.body.id})
+    res.redirect(`/drugs/drugs-edit/${req.body.id}`)
    })
    .catch(err => {err})
 }
 
 module.exports = {
+  index,
   addDrugs,
+  findDrugs,
   destroyDrug,
   updateDrug,
-  editDrug
 }
